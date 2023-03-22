@@ -6,7 +6,9 @@ import cartStore from "../stores/cart";
 
 export default {
     data(){
-        return{}
+        return{
+            code:""
+        }
     },
     methods:{
         ...mapActions(cartStore, ["getCart","updateCart","deleteCart","deleteAllCart","addCouponCode"])
