@@ -1,13 +1,14 @@
 <script>
 import { mapActions } from "pinia";
 import cartStore from "../stores/cart";
-
 import { RouterLink } from "vue-router";
 const { VITE_URL, VITE_PATH }  = import.meta.env
+
 export default {
   data () {
     return {
-      product: {}
+      product: {},
+      qty: 1,
     }
   },
   methods: {
@@ -17,6 +18,14 @@ export default {
         .then(res=>{
             this.product = res.data.product
         })
+    },
+    addOne(){
+        this.qty+=1
+    },
+    minusOne(){
+        if (this.qty>1){
+            this.qty-=1
+        }  
     },
     ...mapActions(cartStore, ["addToCart"]) 
   },
@@ -54,15 +63,15 @@ export default {
                 <p class="h4 fw-bold text-end">NT${{ product.price}}</p>
                 <div class="input-group my-3 bg-light rounded">
                             <div class="input-group-prepend">
-                                <button class="btn btn-outline-dark border-0 py-2" type="button" id="button-addon1">
+                                <button class="btn btn-outline-dark border-0 py-2" type="button" id="button-addon1" @click="() => minusOne()">
                                     <i class="bi bi-dash-lg"></i>
                                 </button>
                             </div>
                             <input type="text" class="form-control border-0 text-center my-auto shadow-none bg-light"
                                 placeholder="" aria-label="Example text with button addon"
-                                aria-describedby="button-addon1" value="1">
+                                aria-describedby="button-addon1" v-model="qty">
                             <div class="input-group-append">
-                                <button class="btn btn-outline-dark border-0 py-2" type="button" id="button-addon2">
+                                <button class="btn btn-outline-dark border-0 py-2" type="button" id="button-addon2" @click="() => addOne()">
                                     <i class="bi bi-plus-lg"></i>
                                 </button>
                             </div>
@@ -70,10 +79,10 @@ export default {
                 <div class="row align-items-center">
                     <div class="col-6">
                         <!-- <button type="button" class="text-nowrap btn btn-dark w-100 py-2" @click="() => addToCart(product.id)">加入購物車</button> -->
-                        <button type="button" class="text-nowrap btn btn-dark w-100 py-2" @click="() => addToCart(product.id)">加入購物車</button>
+                        <button type="button" class="text-nowrap btn btn-dark w-100 py-2" @click="() => addToCart(product.id,qty)">加入購物車</button>
                     </div>
                     <div class="col-6">
-                        <RouterLink to="/cart" class="text-nowrap btn btn-dark w-100 py-2" @click="() => addToCart(product.id)">立刻購買</RouterLink>
+                        <RouterLink to="/cart" class="text-nowrap btn btn-dark w-100 py-2" @click="() => addToCart(product.id,qty)">立刻購買</RouterLink>
                     </div>
                 </div>
             </div>
