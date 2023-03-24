@@ -25,7 +25,7 @@ export default {
           this.order = order;
         })
         .catch((err) => {
-          const errMessage = err.response?.data?.message || '資料錯誤';
+          alert(err.data.message)
           this.isLoading = false;
         });
     },
@@ -36,13 +36,9 @@ export default {
         .then(() => {
           this.isLoading = false;
           this.getOrder();
-          Toast.fire({
-            title: '付款成功',
-            icon: 'success',
-          });
         })
         .catch((err) => {
-          const errMessage = err.response?.data?.message || '資料錯誤';
+          alert(err.data.message)
           this.isLoading = false;
         });
     },
@@ -54,7 +50,7 @@ export default {
 };
 </script>
 <template>
-    <div class="my-5 row justify-content-center">
+  <div class="my-5 mx-1 row justify-content-center w-100">
         <div class="col-md-6">
     <form @submit.prevent="payOrder">
       <div class="card rounded-0 py-4 mb-3">

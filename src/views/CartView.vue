@@ -1,5 +1,4 @@
 <script>
-const { VITE_URL, VITE_PATH }  = import.meta.env
 import { mapActions, mapState } from "pinia";
 import { RouterLink } from "vue-router";
 import cartStore from "../stores/cart";
