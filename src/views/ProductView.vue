@@ -53,7 +53,7 @@ export default {
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <img :src="product.imageUrl"
-                                class="d-block w-100" alt="...">
+                                class="d-block w-100" :alt="product.title">
                         </div>
                     </div>
                 </div>
@@ -78,7 +78,6 @@ export default {
                         </div>
                 <div class="row align-items-center">
                     <div class="col-6">
-                        <!-- <button type="button" class="text-nowrap btn btn-dark w-100 py-2" @click="() => addToCart(product.id)">加入購物車</button> -->
                         <button type="button" class="text-nowrap btn btn-dark w-100 py-2" @click="() => addToCart(product.id,qty)">加入購物車</button>
                     </div>
                     <div class="col-6">

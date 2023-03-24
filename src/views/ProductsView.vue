@@ -78,15 +78,9 @@ export default {
                             data-bs-parent="#accordionExample">
                             <div class="card-body py-0">
                                 <ul class="list-unstyled">
-                                    <!-- <li><a href="" class="py-2 d-block text-muted" @click="() => getProducts('初階')">初階</a></li>
-                                    <li><a href="" class="py-2 d-block text-muted" @click="() => getProducts('中階')">中階</a></li>
-                                    <li><a href="" class="py-2 d-block text-muted" @click="() => getProducts('高階')">高階</a></li>
-                                    <li><a href="" class="py-2 d-block text-muted" @click="() => getProducts('季節限定')">季節限定</a></li> -->
-
                                     <li class="py-2 d-block text-muted" @click="() => getProducts('初階體驗')">初階體驗</li>
                                     <li class="py-2 d-block text-muted" @click="() => getProducts('中階探索')">中階探索</li>
                                     <li class="py-2 d-block text-muted" @click="() => getProducts('高階冒險')">高階冒險</li>
-                                    
                                 </ul>
                             </div>
                         </div>
@@ -99,7 +93,7 @@ export default {
                     <div class="col-md-4" v-for="product in products" :key="product.id">
                         <div class="card border-0 mb-4 position-relative position-relative">
                             <img :src="product.imageUrl"
-                                class="card-img-top rounded-0 object-fit-cover" alt="...">
+                                class="card-img-top rounded-0 object-fit-cover" :alt="product.title">
                             <a href="#" class="text-dark">
                                 <i class="far fa-heart position-absolute" style="right: 16px; top: 16px"></i>
                             </a>

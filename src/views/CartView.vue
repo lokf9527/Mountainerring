@@ -49,7 +49,7 @@ export default {
                             <tr class="border-bottom border-top">
                                 <th scope="row" class="border-0 px-0 font-weight-normal py-4">
                                     <img :src="item.product.imageUrl"
-                                        alt="" style="width: 72px; height: 72px; object-fit: cover;">
+                                        :alt="item.product.title" style="width: 72px; height: 72px; object-fit: cover;">
                                     <p class="mb-0 fw-bold ms-3 d-inline-block">{{ item.product.title }}</p>
                                 </th>
                                 <td class="border-0 align-middle" style="max-width: 160px;">
