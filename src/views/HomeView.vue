@@ -31,7 +31,7 @@ export default {
         <div class="container d-flex justify-content-end align-items-center h-75 w-50 ">
             <div class="me-4" >
                 <h3 class="text-dark" style="font-family:Righteous;">MOUNTAINERRING</h3>
-                <h1 class="fw-bold text-dark mb-3">和你一起翻山越嶺123</h1>
+                <h1 class="fw-bold text-dark mb-3">和你一起翻山越嶺</h1>
                 <RouterLink to="/products" class="btn btn-dark py-2">查看行程</RouterLink>
             </div>
         </div>
